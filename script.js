@@ -1,40 +1,43 @@
 let menuVisible = false;
-//Función que oculta o muestra el menu
-function mostrarOcultarMenu(){
-    if(menuVisible){
-        document.getElementById("nav").classList ="";
+
+// Function to show or hide the menu
+function toggleMenu() {
+    if (menuVisible) {
+        document.getElementById("nav").classList = "";
         menuVisible = false;
-    }else{
-        document.getElementById("nav").classList ="responsive";
+    } else {
+        document.getElementById("nav").classList = "responsive";
         menuVisible = true;
     }
 }
 
-function seleccionar(){
+// Function to handle selection
+function selectItem() {
     document.getElementById("nav").classList = "";
     menuVisible = false;
 }
-//Funcion que aplica las animaciones de las habilidades
-function efectoHabilidades(){
-    var skills = document.getElementById("skills");
-    var distancia_skills = window.innerHeight - skills.getBoundingClientRect().top;
-    if(distancia_skills >= 300){
-        let habilidades = document.getElementsByClassName("progreso");
-        habilidades[0].classList.add("javascript");
-        habilidades[1].classList.add("htmlcss");
-        habilidades[2].classList.add("photoshop");
-        habilidades[3].classList.add("wordpress");
-        habilidades[4].classList.add("drupal");
-        habilidades[5].classList.add("comunicacion");
-        habilidades[6].classList.add("trabajo");
-        habilidades[7].classList.add("creatividad");
-        habilidades[8].classList.add("dedicacion");
-        habilidades[9].classList.add("proyect");
+
+// Function to apply skills animations
+function applySkillsAnimation() {
+    var skillsSection = document.getElementById("skills");
+    var distanceToSkills = window.innerHeight - skillsSection.getBoundingClientRect().top;
+    
+    if (distanceToSkills >= 300) {
+        let skillsElements = document.getElementsByClassName("progress");
+        skillsElements[0].classList.add("javascript");
+        skillsElements[1].classList.add("htmlcss");
+        skillsElements[2].classList.add("photoshop");
+        skillsElements[3].classList.add("wordpress");
+        skillsElements[4].classList.add("drupal");
+        skillsElements[5].classList.add("communication");
+        skillsElements[6].classList.add("teamwork");
+        skillsElements[7].classList.add("creativity");
+        skillsElements[8].classList.add("dedication");
+        skillsElements[9].classList.add("project");
     }
 }
 
-
-//detecto el scrolling para aplicar la animacion de la barra de habilidades
-window.onscroll = function(){
-    efectoHabilidades();
-} 
+// Detect scrolling to apply skills bar animation
+window.onscroll = function() {
+    applySkillsAnimation();
+}
